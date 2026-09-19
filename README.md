@@ -9,7 +9,7 @@
 
 - **Brand**: BSence
 - **Atelier Address**: Satya Enclave, Shop No-3, Gobindo Nibas Rajarhat Road, Kolkata – 700059, West Bengal, India
-- **Concierge Hotline**: +91 91128 93227
+- **Concierge Hotline**: +91 90515 12315
 - **Aesthetic**: Pure White Luxury (`#FFFFFF`, `#FAF8F4`, `#F4EFE7`, `#C7A76A`, `#171717`)
 
 ---
@@ -34,7 +34,7 @@
   - Distraction-free luxury single-page checkout with Indian address fields and multiple payment methods (UPI, Cards, COD).
   - Product Detail Modal with image gallery, wrist size variant picker, and direct WhatsApp concierge button.
   - Predictive instant search across products, mineral categories, and educational crystal knowledge.
-  - Floating WhatsApp concierge widget (+91 91128 93227).
+  - Floating WhatsApp concierge widget (+91 90515 12315).
 
 ---
 

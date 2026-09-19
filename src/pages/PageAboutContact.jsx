@@ -171,8 +171,8 @@ export const PageAboutContact = () => {
                   <Phone size={20} className="text-gold" />
                   <div>
                     <strong style={{ fontSize: '0.85rem', color: 'var(--color-text-dark)', display: 'block' }}>Concierge Hotline:</strong>
-                    <a href="tel:+919112893227" style={{ fontSize: '1.05rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
-                      +91 91128 93227
+                    <a href="tel:+919051512315" style={{ fontSize: '1.05rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
+                      +91 90515 12315
                     </a>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ export const PageAboutContact = () => {
               {/* Direct WhatsApp and Call Buttons */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '2.5rem' }}>
                 <a
-                  href="https://wa.me/919112893227?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
+                  href="https://wa.me/919051512315?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-gold"
@@ -207,7 +207,7 @@ export const PageAboutContact = () => {
                 </a>
 
                 <a
-                  href="tel:+919112893227"
+                  href="tel:+919051512315"
                   className="btn-secondary"
                 >
                   <Phone size={16} /> Call Store Directly

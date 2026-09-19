@@ -410,8 +410,8 @@ export const Header = () => {
               <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginBottom: '4px' }}>
                 Satya Enclave, Rajarhat Road, Kolkata
               </p>
-              <a href="tel:+919112893227" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
-                +91 91128 93227
+              <a href="tel:+919051512315" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
+                +91 90515 12315
               </a>
             </div>
           </div>

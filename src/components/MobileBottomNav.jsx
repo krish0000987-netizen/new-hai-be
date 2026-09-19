@@ -74,7 +74,7 @@ export const MobileBottomNav = () => {
 
       {/* WhatsApp Concierge */}
       <a
-        href="https://wa.me/919112893227?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
+        href="https://wa.me/919051512315?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
         target="_blank"
         rel="noopener noreferrer"
         className="mobile-nav-item whatsapp-nav-item"

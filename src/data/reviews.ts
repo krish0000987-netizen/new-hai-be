@@ -74,7 +74,7 @@ export const REVIEWS: Review[] = [
     productId: 'bracelet-money-pyrite',
     date: '3 weeks ago',
     title: 'Flawless quality, custom sizing fit perfectly',
-    comment: 'Requested a custom 6.2 inch wrist fit via their WhatsApp concierge (+91 91128 93227) and the team accommodated it effortlessly. The weight of the Pyrite beads confirms their natural mineral authenticity. Beautifully cleansed and presented.',
+    comment: 'Requested a custom 6.2 inch wrist fit via their WhatsApp concierge (+91 90515 12315) and the team accommodated it effortlessly. The weight of the Pyrite beads confirms their natural mineral authenticity. Beautifully cleansed and presented.',
     verified: true,
     avatarText: 'SR'
   }

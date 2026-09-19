@@ -296,7 +296,7 @@ export const ProductDetailModal = () => {
               </button>
 
               <a
-                href={`https://wa.me/919112893227?text=${whatsappMessage}`}
+                href={`https://wa.me/919051512315?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{

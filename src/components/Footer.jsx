@@ -33,7 +33,7 @@ export const Footer = () => {
     },
     returns: {
       title: 'Returns & Exchange Policy',
-      content: 'We offer a 7-day doorstep exchange policy for any items damaged in transit or fitting discrepancies. Because crystals are energized specifically for each patron prior to dispatch, items must be in their original unworn condition with security tag intact in their luxury box. Contact our Kolkata concierge at +91 91128 93227 to initiate a seamless return.'
+      content: 'We offer a 7-day doorstep exchange policy for any items damaged in transit or fitting discrepancies. Because crystals are energized specifically for each patron prior to dispatch, items must be in their original unworn condition with security tag intact in their luxury box. Contact our Kolkata concierge at +91 90515 12315 to initiate a seamless return.'
     },
     privacy: {
       title: 'Privacy & Data Protection',
@@ -147,7 +147,7 @@ export const Footer = () => {
                   <FacebookIcon size={16} />
                 </a>
                 <a
-                  href="https://wa.me/919112893227?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
+                  href="https://wa.me/919051512315?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp Concierge"
@@ -350,8 +350,8 @@ export const Footer = () => {
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.8rem', color: '#B0A8A0', fontSize: '0.85rem' }}>
                 <Phone size={16} className="text-gold" />
-                <a href="tel:+919112893227" style={{ color: '#FAF8F4', fontWeight: '500' }}>
-                  +91 91128 93227
+                <a href="tel:+919051512315" style={{ color: '#FAF8F4', fontWeight: '500' }}>
+                  +91 90515 12315
                 </a>
               </div>
 
@@ -361,7 +361,7 @@ export const Footer = () => {
               </div>
 
               <a
-                href="https://wa.me/919112893227?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
+                href="https://wa.me/919051512315?text=Hello%20BSence,%20I%20would%20like%20to%20know%20more%20about%20your%20crystal%20products."
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
