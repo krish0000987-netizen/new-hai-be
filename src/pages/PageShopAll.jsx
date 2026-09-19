@@ -187,11 +187,11 @@ export const PageShopAll = () => {
           </div>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '2.5rem' }}>
-          {/* Desktop Filter Sidebar */}
+        <div className="shop-layout">
+          {/* Filter Sidebar (Desktop persistent, Mobile drawer/toggle) */}
           <aside
+            className={`shop-sidebar ${showMobileFilters ? 'mobile-open' : ''}`}
             style={{
-              display: showMobileFilters ? 'block' : 'block',
               backgroundColor: 'var(--color-secondary)',
               border: '1px solid var(--color-border)',
               padding: '1.8rem 1.4rem',

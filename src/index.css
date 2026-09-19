@@ -338,6 +338,17 @@ h1, h2, h3, h4, .font-heading {
   height: var(--header-height);
 }
 
+.mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--color-text-dark);
+}
+
 .brand-logo {
   display: flex;
   flex-direction: column;
@@ -800,24 +811,274 @@ h1, h2, h3, h4, .font-heading {
   gap: 2rem;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1080px) {
   .grid-4 {
     grid-template-columns: repeat(3, 1fr);
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+  .nav-links {
+    display: none !important;
   }
 }
 
 @media (max-width: 768px) {
-  .grid-4, .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
+  body {
+    padding-bottom: 64px; /* Space for sticky bottom action bar */
   }
+
+  :root {
+    --header-height: 70px;
+    --announcement-height: 34px;
+  }
+
+  .announcement-bar {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-logo-text {
+    font-size: 1.45rem;
+    letter-spacing: 0.14em;
+  }
+
+  .brand-logo-sub {
+    font-size: 0.48rem;
+    letter-spacing: 0.25em;
+  }
+
+  .grid-4, .grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.85rem !important;
+  }
+
   .grid-2 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1.4rem !important;
+  }
+
+  .product-info {
+    padding: 0.75rem 0.2rem 0.3rem 0.2rem;
+  }
+
+  .product-name {
+    font-size: 0.88rem;
+    line-height: 1.28;
+    margin-bottom: 0.25rem;
+  }
+
+  .product-category {
+    font-size: 0.64rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .product-price {
+    font-size: 0.92rem;
+  }
+
+  .product-original-price {
+    font-size: 0.74rem;
+  }
+
+  .product-discount-tag {
+    font-size: 0.64rem;
+    padding: 1px 4px;
+  }
+
+  .product-badge {
+    top: 8px;
+    left: 8px;
+    font-size: 0.6rem;
+    padding: 2px 7px;
+  }
+
+  .product-wishlist-btn {
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Ensure inputs have at least 16px to prevent iOS auto-zoom */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* Floating WhatsApp above bottom bar */
+  .whatsapp-float {
+    bottom: 78px;
+    right: 16px;
+    padding: 0.6rem 0.95rem;
+    font-size: 0.74rem;
+  }
+
+  /* Cart Drawer takes full width on mobile */
+  .cart-drawer {
+    max-width: 100%;
+  }
+
+  /* Modals take full height / width gracefully */
+  .modal-overlay {
+    padding: 0.5rem;
+    align-items: flex-end;
+  }
+
+  .modal-overlay > div {
+    max-height: 94vh !important;
+    border-bottom: none !important;
+    border-radius: 12px 12px 0 0;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .grid-4, .grid-3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
   }
 }
+
+/* Sticky Mobile Bottom Navigation Bar */
+.mobile-bottom-bar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 62px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+  z-index: 120;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0.5rem;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    display: flex;
+  }
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  color: var(--color-text-dark);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item.active {
+  color: var(--color-gold);
+}
+
+.mobile-badge-count {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background: var(--color-gold);
+  color: #FFFFFF;
+  font-size: 0.58rem;
+  font-weight: 700;
+  min-width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* Hero Arrows */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-arrow:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 768px) {
+  .hero-arrow {
+    display: none;
+  }
+}
+
+/* Mobile Sticky Add To Cart in Product Detail Modal */
+.mobile-sticky-add-cart {
+  display: none;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--color-border);
+  padding: 0.85rem 1.2rem;
+  z-index: 40;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-add-cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+/* Responsive Shop Layout */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .shop-sidebar {
+    display: none;
+  }
+  .shop-sidebar.mobile-open {
+    display: block;
+    animation: fadeIn 0.25s ease;
+  }
+}
+
+

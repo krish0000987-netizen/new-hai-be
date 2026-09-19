@@ -42,7 +42,6 @@ export const Header = () => {
               className="icon-btn mobile-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              style={{ display: 'none' }}
             >
               {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>

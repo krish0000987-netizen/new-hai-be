@@ -251,69 +251,21 @@ export const HeroSlider = () => {
         );
       })}
 
-      {/* Navigation Arrows */}
+      {/* Navigation Arrows (discreet, hidden on touch mobile for swipe) */}
       <button
         onClick={prevSlide}
+        className="hero-arrow"
+        style={{ left: '20px' }}
         aria-label="Previous Slide"
-        style={{
-          position: 'absolute',
-          left: '24px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          background: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          color: '#FFFFFF',
-          width: '46px',
-          height: '46px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.35)';
-          e.currentTarget.style.color = '#FFFFFF';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-        }}
       >
         <ChevronLeft size={22} />
       </button>
 
       <button
         onClick={nextSlide}
+        className="hero-arrow"
+        style={{ right: '20px' }}
         aria-label="Next Slide"
-        style={{
-          position: 'absolute',
-          right: '24px',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          background: 'rgba(255, 255, 255, 0.15)',
-          backdropFilter: 'blur(8px)',
-          border: '1px solid rgba(255, 255, 255, 0.3)',
-          color: '#FFFFFF',
-          width: '46px',
-          height: '46px',
-          borderRadius: '50%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          cursor: 'pointer',
-          transition: 'all 0.2s ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.35)';
-          e.currentTarget.style.color = '#FFFFFF';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.15)';
-        }}
       >
         <ChevronRight size={22} />
       </button>

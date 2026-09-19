@@ -8,6 +8,7 @@ import { CheckoutModal } from './components/CheckoutModal';
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { InstantSearchModal } from './components/InstantSearchModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { MobileBottomNav } from './components/MobileBottomNav';
 
 // 10 Dedicated Pages
 import { PageHome } from './pages/PageHome';
@@ -78,6 +79,9 @@ const AppContent = () => {
 
       {/* Floating WhatsApp Widget */}
       <FloatingWhatsApp />
+
+      {/* Sticky Bottom Action Bar on Mobile */}
+      <MobileBottomNav />
 
       {/* Global Toast Notification */}
       {toastMessage && (

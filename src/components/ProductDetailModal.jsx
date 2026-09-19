@@ -422,6 +422,25 @@ export const ProductDetailModal = () => {
             )}
           </div>
         </div>
+
+        {/* Sticky Mobile Add To Cart Bar */}
+        <div className="mobile-sticky-add-cart">
+          <div>
+            <span style={{ fontSize: '0.68rem', color: 'var(--color-gold)', display: 'block', textTransform: 'uppercase', fontWeight: '600' }}>
+              {selectedVariant}
+            </span>
+            <span style={{ fontSize: '1.05rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
+              ₹{product.price.toLocaleString('en-IN')}
+            </span>
+          </div>
+          <button
+            className="btn-primary"
+            onClick={handleAddToCart}
+            style={{ flex: 1, padding: '0.75rem 1rem', fontSize: '0.78rem' }}
+          >
+            <ShoppingBag size={15} /> ADD TO CART
+          </button>
+        </div>
       </div>
     </div>
   );
