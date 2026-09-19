@@ -115,7 +115,7 @@ export const PageAboutContact = () => {
             <p className="section-desc">Three guiding pillars that define every BSence creation.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))', gap: 'clamp(1.2rem, 3vw, 2rem)' }}>
             <div style={{ backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', padding: '2.5rem 2rem', boxShadow: 'var(--shadow-subtle)' }}>
               <span style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', color: 'var(--color-gold)', display: 'block', marginBottom: '0.8rem' }}>01</span>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.35rem', marginBottom: '0.6rem' }}>Thoughtfully Selected</h3>
@@ -146,7 +146,7 @@ export const PageAboutContact = () => {
       {/* Visit BSence & Contact Form Section */}
       <section style={{ padding: '5.5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))', gap: '4rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(2rem, 4vw, 4rem)' }}>
             {/* Left: Store Information & Live CTAs */}
             <div>
               <span className="eyebrow">VISIT OUR KOLKATA ATELIER</span>

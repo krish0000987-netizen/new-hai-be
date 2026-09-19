@@ -214,9 +214,9 @@ export const PageNumerologyBracelets = () => {
               border: '1px solid var(--color-border)',
               boxShadow: 'var(--shadow-card)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: '3rem',
-              padding: 'clamp(2rem, 4vw, 3.5rem)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+              gap: 'clamp(1.5rem, 3vw, 3rem)',
+              padding: 'clamp(1.2rem, 3.5vw, 3.5rem)',
               alignItems: 'center'
             }}
           >

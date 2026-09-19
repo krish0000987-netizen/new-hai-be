@@ -19,7 +19,7 @@ export const LuxuryRingsEditorial = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             alignItems: 'center'
           }}
         >
@@ -28,7 +28,7 @@ export const LuxuryRingsEditorial = () => {
             style={{
               position: 'relative',
               height: '100%',
-              minHeight: '520px',
+              minHeight: '320px',
               overflow: 'hidden'
             }}
           >
@@ -65,7 +65,7 @@ export const LuxuryRingsEditorial = () => {
           {/* Right Column: Editorial Narrative */}
           <div
             style={{
-              padding: 'clamp(3rem, 6vw, 6rem)',
+              padding: 'clamp(1.5rem, 5vw, 5rem)',
               backgroundColor: 'var(--color-warm-cream)'
             }}
           >

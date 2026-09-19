@@ -51,8 +51,8 @@ export const PreparationProcess = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: 'clamp(1.2rem, 3vw, 2rem)',
             position: 'relative'
           }}
         >

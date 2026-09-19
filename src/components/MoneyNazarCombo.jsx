@@ -22,14 +22,14 @@ export const MoneyNazarCombo = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             alignItems: 'center'
           }}
         >
           {/* Left Column: Narrative */}
           <div
             style={{
-              padding: 'clamp(3rem, 6vw, 6rem)',
+              padding: 'clamp(1.5rem, 5vw, 5rem)',
               backgroundColor: 'var(--color-secondary)'
             }}
           >

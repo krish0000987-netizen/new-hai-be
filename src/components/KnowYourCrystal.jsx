@@ -66,13 +66,13 @@ export const KnowYourCrystal = () => {
             border: '1px solid var(--color-border)',
             boxShadow: 'var(--shadow-card)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
             alignItems: 'center',
             overflow: 'hidden'
           }}
         >
           {/* Image */}
-          <div style={{ height: '100%', minHeight: '380px', position: 'relative' }}>
+          <div style={{ height: '100%', minHeight: '280px', position: 'relative' }}>
             <img
               src={selectedCrystal.image}
               alt={selectedCrystal.name}

@@ -40,8 +40,8 @@ export const InstagramGrid = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-            gap: '1rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 140px), 1fr))',
+            gap: 'clamp(0.6rem, 2vw, 1rem)',
             marginBottom: '3rem'
           }}
         >

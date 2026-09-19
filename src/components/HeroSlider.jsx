@@ -159,8 +159,10 @@ export const HeroSlider = () => {
               }}
             >
               <div
+                className="hero-content-inner"
                 style={{
                   maxWidth: '680px',
+                  width: '100%',
                   color: '#FFFFFF',
                   opacity: isActive ? 1 : 0,
                   transform: isActive ? 'translateY(0)' : 'translateY(24px)',
@@ -173,8 +175,8 @@ export const HeroSlider = () => {
                   <span
                     style={{
                       fontFamily: 'var(--font-body)',
-                      fontSize: '0.74rem',
-                      letterSpacing: '0.24em',
+                      fontSize: 'clamp(0.68rem, 2.4vw, 0.74rem)',
+                      letterSpacing: '0.22em',
                       textTransform: 'uppercase',
                       color: 'var(--color-gold)',
                       fontWeight: '600'
@@ -186,15 +188,18 @@ export const HeroSlider = () => {
 
                 {/* Main Heading */}
                 <h1
+                  className="hero-heading"
                   style={{
                     fontFamily: 'var(--font-heading)',
-                    fontSize: 'clamp(2.4rem, 4.5vw, 4.2rem)',
+                    fontSize: 'clamp(1.75rem, 5.2vw, 4.2rem)',
                     fontWeight: '400',
-                    lineHeight: '1.1',
-                    letterSpacing: '0.04em',
+                    lineHeight: '1.12',
+                    letterSpacing: '0.03em',
                     color: '#FFFFFF',
-                    marginBottom: '1.4rem',
-                    textShadow: '0 2px 20px rgba(0,0,0,0.3)'
+                    marginBottom: '1.2rem',
+                    textShadow: '0 2px 20px rgba(0,0,0,0.3)',
+                    wordBreak: 'break-word',
+                    overflowWrap: 'break-word'
                   }}
                 >
                   {slide.title}
@@ -202,12 +207,13 @@ export const HeroSlider = () => {
 
                 {/* Subtitle */}
                 <p
+                  className="hero-subtitle"
                   style={{
                     fontFamily: 'var(--font-body)',
-                    fontSize: 'clamp(0.95rem, 1.2vw, 1.15rem)',
-                    lineHeight: '1.7',
+                    fontSize: 'clamp(0.85rem, 2.6vw, 1.15rem)',
+                    lineHeight: '1.6',
                     color: '#F4EFE7',
-                    marginBottom: '2.4rem',
+                    marginBottom: '2rem',
                     fontWeight: '300',
                     maxWidth: '560px',
                     textShadow: '0 1px 10px rgba(0,0,0,0.3)'
@@ -217,12 +223,11 @@ export const HeroSlider = () => {
                 </p>
 
                 {/* Action Buttons */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
+                <div className="hero-action-buttons">
                   {slide.primaryBtn && (
                     <button
                       className="btn-gold"
                       onClick={slide.primaryBtn.action}
-                      style={{ padding: '1.05rem 2.4rem' }}
                     >
                       {slide.primaryBtn.text}
                       <ArrowRight size={16} />

@@ -62,9 +62,9 @@ export const Footer = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-              gap: '3rem',
-              marginBottom: '4.5rem'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+              gap: 'clamp(1.8rem, 3.5vw, 3rem)',
+              marginBottom: '3rem'
             }}
           >
             {/* Column 1: Brand & Kolkata Address */}

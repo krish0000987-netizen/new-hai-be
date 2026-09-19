@@ -90,7 +90,7 @@ export const PageCrystalRings = () => {
       {/* Atelier Craftsmanship Feature Strip */}
       <section style={{ backgroundColor: 'var(--color-warm-cream)', borderBottom: '1px solid var(--color-border)', padding: '2.5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))', gap: 'clamp(1.2rem, 3vw, 2rem)', textAlign: 'center' }}>
             <div>
               <span className="eyebrow" style={{ marginBottom: '0.3rem' }}>18K GOLD VERMEIL</span>
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-dark)', margin: 0, fontWeight: '500' }}>

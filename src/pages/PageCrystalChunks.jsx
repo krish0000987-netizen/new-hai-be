@@ -72,7 +72,7 @@ export const PageCrystalChunks = () => {
       {/* Editorial: "From Nature to Your Space" */}
       <section style={{ backgroundColor: 'var(--color-warm-cream)', borderBottom: '1px solid var(--color-border)', padding: '4.5rem 0' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 3vw, 3.5rem)', alignItems: 'center' }}>
             <div>
               <span className="eyebrow">INTERIOR WELLNESS & VASTU</span>
               <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.2rem', marginBottom: '1rem', color: 'var(--color-text-dark)' }}>

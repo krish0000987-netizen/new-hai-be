@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useShop } from '../context/ShopContext';
-import { Search, Heart, ShoppingBag, Menu, X, ChevronDown, Sparkles, User, Settings } from 'lucide-react';
+import { Search, Heart, ShoppingBag, Menu, X, ChevronDown, Sparkles, Settings } from 'lucide-react';
 
 export const Header = () => {
   const {
@@ -18,11 +18,23 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 15);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent background scrolling when mobile menu drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const navigateTo = (page, category = null) => {
     if (category) {
@@ -35,28 +47,40 @@ export const Header = () => {
   return (
     <>
       <header className={`site-header glass-nav ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="container">
+        <div className="container header-container">
           <div className="header-inner">
-            {/* Mobile Menu Button */}
-            <button
-              className="icon-btn mobile-toggle"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
+            {/* Left Column on Mobile: Hamburger Button */}
+            <div className="header-left">
+              <button
+                className="mobile-toggle"
+                onClick={() => setMobileMenuOpen(true)}
+                aria-label="Open Navigation Menu"
+              >
+                <Menu size={22} />
+              </button>
 
-            {/* Brand Logo */}
+              {/* Desktop Brand Logo (Left on desktop) */}
+              <a
+                href="#/home"
+                className="brand-logo desktop-logo"
+                onClick={(e) => { e.preventDefault(); navigateTo('home'); }}
+              >
+                <span className="brand-logo-text">BSENCE</span>
+                <span className="brand-logo-sub">KOLKATA • EST. 2021</span>
+              </a>
+            </div>
+
+            {/* Mobile Brand Logo (Centered on mobile) */}
             <a
               href="#/home"
-              className="brand-logo"
+              className="brand-logo mobile-logo"
               onClick={(e) => { e.preventDefault(); navigateTo('home'); }}
             >
               <span className="brand-logo-text">BSENCE</span>
-              <span className="brand-logo-sub">KOLKATA • EST. 2021</span>
+              <span className="brand-logo-sub">KOLKATA</span>
             </a>
 
-            {/* Main Desktop Navigation */}
+            {/* Main Desktop Navigation (Center on desktop) */}
             <nav className="nav-links" aria-label="Main Navigation">
               <div className="nav-item">
                 <a
@@ -75,7 +99,7 @@ export const Header = () => {
                   className={`nav-link ${currentPage === 'shop' ? 'active' : ''}`}
                   onClick={(e) => { e.preventDefault(); navigateTo('shop', 'all'); }}
                 >
-                  Shop <ChevronDown size={14} style={{ opacity: 0.6 }} />
+                  Shop <ChevronDown size={13} style={{ opacity: 0.6 }} />
                 </a>
 
                 {/* Mega Menu Dropdown */}
@@ -133,13 +157,6 @@ export const Header = () => {
                       className="mega-item-link"
                       onClick={(e) => { e.preventDefault(); navigateTo('crystal-rings'); }}
                     >
-                      Everyday Solitaires
-                    </a>
-                    <a
-                      href="#/crystal-rings"
-                      className="mega-item-link"
-                      onClick={(e) => { e.preventDefault(); navigateTo('crystal-rings'); }}
-                    >
                       Ring Sizing Guide
                     </a>
                   </div>
@@ -166,13 +183,6 @@ export const Header = () => {
                       onClick={(e) => { e.preventDefault(); navigateTo('charging-plates'); }}
                     >
                       Selenite Charging Plates
-                    </a>
-                    <a
-                      href="#/rudraksha"
-                      className="mega-item-link"
-                      onClick={(e) => { e.preventDefault(); navigateTo('rudraksha'); }}
-                    >
-                      Energization Process
                     </a>
                   </div>
 
@@ -239,9 +249,9 @@ export const Header = () => {
                 <Search size={19} />
               </button>
 
-              {/* Admin Portal Toggle */}
+              {/* Admin Portal Toggle (Desktop only) */}
               <button
-                className="icon-btn"
+                className="icon-btn desktop-only-icon"
                 onClick={() => navigateTo('admin')}
                 title="Admin Management Dashboard"
                 aria-label="Admin Dashboard"
@@ -250,9 +260,9 @@ export const Header = () => {
                 <Settings size={18} />
               </button>
 
-              {/* Wishlist Link */}
+              {/* Wishlist Link (Desktop only - mobile has bottom nav) */}
               <button
-                className="icon-btn"
+                className="icon-btn desktop-only-icon"
                 onClick={() => navigateTo('shop')}
                 title={`Wishlist (${wishlist.length})`}
                 aria-label="Wishlist"
@@ -280,133 +290,129 @@ export const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Slide-Out Drawer */}
+      {/* Mobile Slide-Out Menu Drawer */}
       {mobileMenuOpen && (
         <div
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 140,
-            background: 'rgba(23, 23, 23, 0.6)',
-            backdropFilter: 'blur(4px)'
-          }}
+          className="mobile-drawer-overlay"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '80%',
-              maxWidth: '320px',
-              height: '100%',
-              background: '#FFFFFF',
-              padding: '2rem 1.5rem',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1.2rem',
-              boxShadow: 'var(--shadow-modal)',
-              overflowY: 'auto'
-            }}
+            className="mobile-drawer"
             onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-label="Mobile Navigation Menu"
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--color-border)', paddingBottom: '1rem' }}>
+            {/* Drawer Header */}
+            <div className="mobile-drawer-header">
               <div>
-                <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', letterSpacing: '0.15em' }}>BSENCE</span>
-                <p style={{ fontSize: '0.6rem', color: 'var(--color-gold)', letterSpacing: '0.2em' }}>KOLKATA</p>
+                <span className="brand-logo-text" style={{ fontSize: '1.4rem' }}>BSENCE</span>
+                <span className="brand-logo-sub" style={{ fontSize: '0.5rem', display: 'block' }}>KOLKATA • EST. 2021</span>
               </div>
-              <button className="icon-btn" onClick={() => setMobileMenuOpen(false)}>
-                <X size={20} />
+              <button
+                className="icon-btn"
+                onClick={() => setMobileMenuOpen(false)}
+                aria-label="Close Navigation Menu"
+              >
+                <X size={22} />
               </button>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', marginTop: '1rem' }}>
+            {/* Drawer Navigation Links */}
+            <div className="mobile-drawer-links">
               <a
                 href="#/home"
-                style={{ fontSize: '0.9rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.5rem 0' }}
+                className={`mobile-drawer-link ${currentPage === 'home' ? 'active' : ''}`}
                 onClick={(e) => { e.preventDefault(); navigateTo('home'); }}
               >
                 Home
               </a>
               <a
                 href="#/shop"
-                style={{ fontSize: '0.9rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.5rem 0' }}
+                className={`mobile-drawer-link ${currentPage === 'shop' ? 'active' : ''}`}
                 onClick={(e) => { e.preventDefault(); navigateTo('shop', 'all'); }}
               >
-                Shop All Crystals & Jewelry
+                Shop All Creations
               </a>
-              <a
-                href="#/lifestyle-bracelets"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('lifestyle-bracelets'); }}
-              >
-                • Lifestyle Bracelets
-              </a>
-              <a
-                href="#/zodiac-bracelets"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('zodiac-bracelets'); }}
-              >
-                • 12 Zodiac Bracelets
-              </a>
-              <a
-                href="#/numerology-bracelets"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('numerology-bracelets'); }}
-              >
-                • Numerology Birth Numbers
-              </a>
-              <a
-                href="#/crystal-rings"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('crystal-rings'); }}
-              >
-                • Luxury Crystal Rings
-              </a>
-              <a
-                href="#/rudraksha"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('rudraksha'); }}
-              >
-                • Sacred Rudraksha
-              </a>
-              <a
-                href="#/crystal-chunks"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('crystal-chunks'); }}
-              >
-                • Raw Crystal Chunks
-              </a>
-              <a
-                href="#/charging-plates"
-                style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', paddingLeft: '1rem' }}
-                onClick={(e) => { e.preventDefault(); navigateTo('charging-plates'); }}
-              >
-                • Selenite Charging Plates
-              </a>
+
+              <div className="mobile-drawer-category-group">
+                <span className="mobile-drawer-group-title">Collections</span>
+                <a
+                  href="#/lifestyle-bracelets"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('lifestyle-bracelets'); }}
+                >
+                  • Lifestyle Intention Bracelets
+                </a>
+                <a
+                  href="#/zodiac-bracelets"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('zodiac-bracelets'); }}
+                >
+                  • 12 Zodiac Bracelets
+                </a>
+                <a
+                  href="#/numerology-bracelets"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('numerology-bracelets'); }}
+                >
+                  • Numerology Birth Numbers (1–9)
+                </a>
+                <a
+                  href="#/crystal-rings"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('crystal-rings'); }}
+                >
+                  • Luxury Crystal Rings
+                </a>
+                <a
+                  href="#/rudraksha"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('rudraksha'); }}
+                >
+                  • Sacred Nepali Rudraksha
+                </a>
+                <a
+                  href="#/crystal-chunks"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('crystal-chunks'); }}
+                >
+                  • Raw Crystal Chunks & Geodes
+                </a>
+                <a
+                  href="#/charging-plates"
+                  className="mobile-drawer-sublink"
+                  onClick={(e) => { e.preventDefault(); navigateTo('charging-plates'); }}
+                >
+                  • The Selenite Charging Plate
+                </a>
+              </div>
+
               <a
                 href="#/about-contact"
-                style={{ fontSize: '0.9rem', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.5rem 0', marginTop: '0.5rem' }}
+                className={`mobile-drawer-link ${currentPage === 'about-contact' ? 'active' : ''}`}
                 onClick={(e) => { e.preventDefault(); navigateTo('about-contact'); }}
               >
-                About & Kolkata Store
+                Our Story & Kolkata Store
               </a>
+
               <a
                 href="#/admin"
-                style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '0.1em', padding: '0.5rem 0' }}
+                className={`mobile-drawer-link ${currentPage === 'admin' ? 'active' : ''}`}
+                style={{ color: 'var(--color-gold)' }}
                 onClick={(e) => { e.preventDefault(); navigateTo('admin'); }}
               >
-                Admin Panel
+                Admin Operations Portal
               </a>
             </div>
 
-            <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--color-border)' }}>
-              <p style={{ fontSize: '0.72rem', color: 'var(--color-text-muted)' }}>
+            {/* Drawer Footer */}
+            <div className="mobile-drawer-footer">
+              <p style={{ fontSize: '0.75rem', color: 'var(--color-text-muted)', marginBottom: '4px' }}>
                 Satya Enclave, Rajarhat Road, Kolkata
               </p>
-              <p style={{ fontSize: '0.75rem', fontWeight: '600', color: 'var(--color-text-dark)', marginTop: '4px' }}>
+              <a href="tel:+919112893227" style={{ fontSize: '0.85rem', fontWeight: '600', color: 'var(--color-text-dark)' }}>
                 +91 91128 93227
-              </p>
+              </a>
             </div>
           </div>
         </div>

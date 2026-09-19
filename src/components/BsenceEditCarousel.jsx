@@ -95,10 +95,7 @@ export const BsenceEditCarousel = () => {
           {editProducts.map((product) => (
             <div
               key={product.id}
-              style={{
-                flex: '0 0 320px',
-                scrollSnapAlign: 'start'
-              }}
+              className="carousel-card-item"
             >
               <ProductCard product={product} />
             </div>

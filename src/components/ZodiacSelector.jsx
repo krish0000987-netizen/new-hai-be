@@ -29,8 +29,8 @@ export const ZodiacSelector = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-            gap: '1.4rem'
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 140px), 1fr))',
+            gap: 'clamp(0.8rem, 2.5vw, 1.4rem)'
           }}
         >
           {ZODIAC_SIGNS.map((sign) => (

@@ -91,7 +91,7 @@ export const PageChargingPlates = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: 'clamp(1.2rem, 3vw, 2rem)' }}>
             {/* Step 1 */}
             <div style={{ backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', padding: '2.5rem 2rem', textAlign: 'center', boxShadow: 'var(--shadow-subtle)' }}>
               <div style={{ width: '50px', height: '50px', borderRadius: '50%', backgroundColor: 'var(--color-warm-cream)', border: '1px solid var(--color-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.2rem auto', color: 'var(--color-gold)', fontWeight: '700', fontSize: '1.2rem' }}>

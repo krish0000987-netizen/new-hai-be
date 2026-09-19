@@ -88,7 +88,7 @@ export const PageRudraksha = () => {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: 'clamp(1.2rem, 3vw, 2rem)' }}>
             <div style={{ backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', padding: '2rem', boxShadow: 'var(--shadow-subtle)' }}>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', marginBottom: '0.8rem', color: 'var(--color-gold)' }}>
                 1. Authentic Nepali vs. Indonesian

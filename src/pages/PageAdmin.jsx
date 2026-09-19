@@ -298,11 +298,11 @@ export const PageAdmin = () => {
 
         {/* Tab 3: Coupons */}
         {activeTab === 'coupons' && (
-          <div style={{ backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', padding: '2.5rem', boxShadow: 'var(--shadow-card)' }}>
+          <div style={{ backgroundColor: '#FFFFFF', border: '1px solid var(--color-border)', padding: 'clamp(1.2rem, 3.5vw, 2.5rem)', boxShadow: 'var(--shadow-card)' }}>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', marginBottom: '1.5rem' }}>
               Active Privilege Codes
             </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '1.5rem' }}>
               <div style={{ padding: '1.5rem', border: '1px dashed var(--color-gold)', backgroundColor: 'var(--color-warm-cream)' }}>
                 <strong style={{ fontSize: '1.1rem', color: 'var(--color-text-dark)', display: 'block' }}>BSENCE10</strong>
                 <span style={{ fontSize: '0.75rem', color: 'var(--color-gold)', fontWeight: '600' }}>10% Inaugural Discount</span>

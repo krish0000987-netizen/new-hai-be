@@ -131,9 +131,9 @@ export const PageZodiacBracelets = () => {
               border: '1px solid var(--color-border)',
               boxShadow: 'var(--shadow-card)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-              gap: '3rem',
-              padding: 'clamp(2rem, 4vw, 3.5rem)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+              gap: 'clamp(1.5rem, 3vw, 3rem)',
+              padding: 'clamp(1.2rem, 3.5vw, 3.5rem)',
               alignItems: 'center'
             }}
           >
@@ -222,7 +222,7 @@ export const PageZodiacBracelets = () => {
             <p className="section-desc">Click any sign below to switch archetypes and review recommended mineral combinations.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: 'clamp(1rem, 2.5vw, 1.5rem)' }}>
             {ZODIAC_SIGNS.map((sign) => (
               <div
                 key={sign.id}

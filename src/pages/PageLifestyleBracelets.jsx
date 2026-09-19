@@ -161,10 +161,10 @@ export const PageLifestyleBracelets = () => {
             style={{
               backgroundColor: '#FFFFFF',
               border: '1px solid var(--color-border)',
-              padding: '2rem 2.5rem',
+              padding: 'clamp(1.2rem, 3vw, 2.5rem)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '2rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+              gap: 'clamp(1.2rem, 2.5vw, 2rem)',
               alignItems: 'center'
             }}
           >

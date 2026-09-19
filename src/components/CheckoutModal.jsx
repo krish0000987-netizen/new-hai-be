@@ -175,7 +175,7 @@ export const CheckoutModal = () => {
         ) : (
           /* Checkout Input Form & Order Review */
           <form onSubmit={handleSubmitOrder}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
               {/* Shipping Address Column */}
               <div>
                 <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.3rem', marginBottom: '1.2rem' }}>

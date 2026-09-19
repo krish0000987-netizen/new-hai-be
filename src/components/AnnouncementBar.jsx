@@ -4,15 +4,18 @@ import { Sparkles, Truck, ShieldCheck } from 'lucide-react';
 export const AnnouncementBar = () => {
   const announcements = [
     {
-      text: '✨ Every Crystal Is Cleansed & Energized In Kolkata Before Dispatch ✨',
+      desktop: '✨ Every Crystal Is Cleansed & Energized In Kolkata Before Dispatch ✨',
+      mobile: '✨ Cleansed & Energized In Kolkata Before Dispatch ✨',
       icon: Sparkles
     },
     {
-      text: 'Complimentary Insured Express Delivery Pan-India on Orders Above ₹1,999',
+      desktop: 'Complimentary Insured Express Delivery Pan-India on Orders Above ₹1,999',
+      mobile: 'Complimentary Insured Delivery Across India on ₹1,999+',
       icon: Truck
     },
     {
-      text: 'Use Privilege Code BSENCE10 For 10% Off Your Inaugural Order',
+      desktop: 'Use Privilege Code BSENCE10 For 10% Off Your Inaugural Order',
+      mobile: 'Use Privilege Code BSENCE10 For 10% Off',
       icon: ShieldCheck
     }
   ];
@@ -22,17 +25,19 @@ export const AnnouncementBar = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % announcements.length);
-    }, 4000);
+    }, 4500);
     return () => clearInterval(timer);
   }, [announcements.length]);
 
-  const CurrentIcon = announcements[currentIndex].icon;
+  const current = announcements[currentIndex];
+  const CurrentIcon = current.icon;
 
   return (
     <div className="announcement-bar" role="region" aria-label="Announcement">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', transition: 'all 0.5s ease' }}>
-        <CurrentIcon size={13} className="text-gold" />
-        <span>{announcements[currentIndex].text}</span>
+      <div className="announcement-content">
+        <CurrentIcon size={12} className="text-gold announcement-icon" />
+        <span className="announcement-text-desktop">{current.desktop}</span>
+        <span className="announcement-text-mobile">{current.mobile}</span>
       </div>
     </div>
   );

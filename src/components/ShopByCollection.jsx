@@ -76,10 +76,11 @@ export const ShopByCollection = () => {
         </div>
 
         {/* Collections Grid (6 cards) */}
-        <div className="grid-3" style={{ rowGap: '2.5rem' }}>
+        <div className="collections-grid">
           {collections.map((col) => (
             <div
               key={col.id}
+              className="collection-card"
               onClick={() => handleExplore(col)}
               style={{
                 position: 'relative',
@@ -128,6 +129,7 @@ export const ShopByCollection = () => {
 
               {/* Content Overlay */}
               <div
+                className="collection-card-content"
                 style={{
                   position: 'absolute',
                   bottom: 0,
@@ -138,6 +140,7 @@ export const ShopByCollection = () => {
                 }}
               >
                 <h3
+                  className="collection-card-title"
                   style={{
                     fontFamily: 'var(--font-heading)',
                     fontSize: '1.45rem',
@@ -149,6 +152,7 @@ export const ShopByCollection = () => {
                   {col.name}
                 </h3>
                 <p
+                  className="collection-card-desc"
                   style={{
                     fontSize: '0.82rem',
                     color: '#F4EFE7',

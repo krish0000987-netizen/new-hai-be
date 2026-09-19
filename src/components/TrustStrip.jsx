@@ -38,8 +38,8 @@ export const TrustStrip = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '2.2rem'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 220px), 1fr))',
+            gap: 'clamp(1.2rem, 3vw, 2.2rem)'
           }}
         >
           {trustItems.map((item, idx) => {

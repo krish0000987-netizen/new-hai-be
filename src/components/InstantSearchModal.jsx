@@ -65,7 +65,7 @@ export const InstantSearchModal = () => {
           boxShadow: 'var(--shadow-modal)',
           border: '1px solid var(--color-border)',
           position: 'relative',
-          padding: '2.5rem'
+          padding: 'clamp(1.2rem, 3.5vw, 2.5rem)'
         }}
         onClick={(e) => e.stopPropagation()}
       >
